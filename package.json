@@ -1,0 +1,17 @@
+{
+  "name": "graphAPISimulator",
+  "version": "1.0.0",
+  "description": "a Azure MS Graph Simulator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jeffrey Gilbert <visualjeff@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "uuid": "^3.3.2"
+  }
+}

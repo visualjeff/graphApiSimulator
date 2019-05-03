@@ -1,0 +1,45 @@
+[
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#auditLogs/directoryAudits",
+  "value": [{
+		"id": "id",
+		"category": "UserManagement",
+		"correlationId": "da159bfb-54fa-4092-8a38-6e1fa7870e30",
+		"result": "success",
+		"resultReason": "Successfully added member to group",
+		"activityDisplayName": "Add member to group",
+		"activityDateTime": "2018-01-09T21:20:02.7215374Z",
+		"loggedByService": "Core Directory",
+		"initiatedBy": {
+			"user": {
+				"id": "7283X9ae-1a37-4937-9aex-e35d964db09b",
+				"displayName": "Jamie Doe",
+				"userPrincipalName": "jdoe@wingtiptoysonline.com",
+				"ipAddress": "127.0.0.1"
+			},
+			"app": null
+		},
+		"targetResources": [{
+			"@odata.type": "#microsoft.graph.TargetResourceGroup",
+			"id": "ef7x527d-6x92-42x4-8x6d-cfxfdfx57f95",
+			"displayName": "Lynda.com",
+			"modifiedProperties": [{
+				"displayName": "Action Client Name",
+				"oldValue": null,
+				"newValue": "DirectorySync"
+			}],
+			"groupType": "unifiedGroups"
+		}, {
+			"@odata.type": "#microsoft.graph.targetResourceUser",
+			"id": "1f0ex8f5-3x61-4x6b-9x50-d4xx572f2bb7",
+			"displayName": null,
+			"modifiedProperties": [],
+			"userPrincipalName": "jdoe@contoso.com"
+		}],
+		"additionalDetails": [{
+			"key": "Additional Detail Name",
+			"value": "Additional Detail Value"
+		}]
+	}]
+	}
+]
