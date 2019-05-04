@@ -26,26 +26,26 @@ app.use('/ping', (req, res) => {
     res.send('pong');
 });
 
-//https:localhost:3000/beta/auditLogs/directoryAudits?filter=loggedByService eq ''B2C''and activityDateTime gt ' + $daysago&top=10
+//http//:localhost:3000/beta/auditLogs/directoryAudits?filter=loggedByService eq ''B2C''and activityDateTime gt ' + $daysago&top=10
 app.use('/beta/auditLogs/directoryAudits', (req, res) => {
     let data;
-    if (req.query.filter & !_internals.skiptoken) {
+    if (req.query.$filter & !_internals.skiptoken) {
         data = {
             "@odata.context": "https://graph.microsoft.com/beta/$metadata#auditLogs/directoryAudits",
-            "value": dataGenerator.generateFakeData(Number(req.query.top))
+            "value": dataGenerator.generateFakeData(Number(req.query.$top))
         }
         console.log('payload length: ', data.value.length);    
     } else {
         data = {
             "@odata.context": "https://graph.microsoft.com/beta/$metadata#auditLogs/directoryAudits",
-            "value": dataGenerator.generateFakeData(Number(req.query.top))
+            "value": dataGenerator.generateFakeData(Number(req.query.$top))
         }
         //console.log('payload length: ', data.value.length);
     }
     
     if (_internals.count < _internals.max) {
 	_internals.skiptoken = uuidv4();    
-        data["@odata.nextLink"] = `http://localhost:3000/beta/auditLogs/directoryAudits?top=${req.query.top}&skiptoken=${_internals.skiptoken}`;
+        data["@odata.nextLink"] = `http://localhost:3000/beta/auditLogs/directoryAudits?$top=${req.query.$top}&$skiptoken=${_internals.skiptoken}`;
         _internals.count++;
     }
     res.json(data);
